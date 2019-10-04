@@ -43,21 +43,20 @@ void recvWithEndMarker() {
  char rc;
  
  // if (Serial.available() > 0) {
-           while (Serial.available() > 0 && newData == false) {
- rc = Serial.read();
+ while (Serial.available() > 0 && newData == false) {
+  rc = Serial.read();
 
- if (rc != endMarker) {
- msg[ndx] = rc;
- ndx++;
- if (ndx >= numChars) {
- ndx = numChars - 1;
- }
- }
- else {
- msg[ndx] = '\0'; // terminate the string
- ndx = 0;
- newData = true;
- }
+  if (rc != endMarker) {
+   msg[ndx] = rc;
+   ndx++;
+   if (ndx >= numChars) {
+    ndx = numChars - 1;
+   }
+  } else {
+   msg[ndx] = '\0'; // terminate the string
+   ndx = 0;
+   newData = true;
+  }
  }
 }
 
